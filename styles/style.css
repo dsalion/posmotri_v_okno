@@ -16,6 +16,10 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  align-items: center;
+  margin: auto;
+
 }
 
 h1,
@@ -36,3 +40,48 @@ ul,
 ol {
   list-style: none;
 }
+
+
+
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px; 
+  inline-size: 100%;
+}
+
+
+.content__list {
+  position: relative;
+  overflow-y: scroll;
+  block-size: 534px;
+ scrollbar-width: none;
+}
+
+.result {
+  block-size: 534px;
+}
+
+.result__video {
+  block-size: 534px;
+}
+/*
+.page {
+  display: flex;
+}
+
+.result {
+  max-height: 534px;
+}
+
+.result__video {
+  max-height: 386px;
+
+} */
+
+/* .content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+} */
