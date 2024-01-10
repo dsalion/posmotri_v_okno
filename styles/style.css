@@ -48,7 +48,7 @@ ol {
 .content__list {
   overflow-y: scroll;
   max-width: 399px;
-  max-height: 298px;
+  min-height: 298px;
   display: flex;
   flex-direction: column;
   gap: 30px;
