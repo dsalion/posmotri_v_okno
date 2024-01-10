@@ -39,30 +39,45 @@ ol {
   list-style: none;
 }
 
-
-
-
 .content {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 30px; 
 }
-
 
 .content__list {
   overflow-y: scroll;
   max-width: 399px;
-  height: 534px;
+  max-height: 298px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  scrollbar-width: none;                 
+  position: relative;
 }
 
-.content__details {
+*::-webkit-scrollbar {
+  width: 1px;                            
+}
  
-  
+.content__details {
+  max-height: 534px;
+  gap: 26px;
+  display: flex;
+  flex-direction: column;
 }
 
 .result {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.result__video-container {
+  max-width: 711px;
+  max-height: 386px;
+  position: relative;
 }
 
 .result__video {
@@ -70,34 +85,131 @@ ol {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  align-self: flex-end;
 }
 
 .search-form {
   display:flex;
-  align-items: center;
+  justify-content: space-between;
   gap: 40px;
 }
 
+.content__video-card {
+  display: flex;
+}
+
+.content__video-card-thumbnail {
+  width: 100%;
+  max-width: 194px;
+}
+
+.content__card-link {
+  text-decoration: none;
+}
+
+.content__video-card-title {
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 30px */
+  text-transform: uppercase; 
+}
+
+.content__video-card-description {
+  visibility: hidden;
+  width: 200px;
+  color: #FFF;
+  font-style: normal;
+  line-height: 16.2px;
+}
+
+.content__video-card-description::before {
+  content: "Вот, что видит кто-то из команды Практикума, когда не смотрит на код, а смотрит в окно.";
+  visibility: visible;
+}
+
+.title {
+  font-family: Oswald;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%; /* 70.5px */
+  text-transform: uppercase; 
+}
+
+.content__accent{
+  color: #545050;
+}
+
+.button {
+  border: 1px solid #FFF;
+  background-color: transparent;
+  color: inherit;
+  min-height: 34px;
+  font-size: 18px;
+}
+
+.search-form__submit-button {
+  min-width: 194px;
+  align-self: flex-end;
+}
 
 .more-button {
   width: 100%;
 }
-/*
-.page {
+
+.search-form__fieldset {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
 }
 
-.result {
-  max-height: 534px;
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal; 
 }
 
-.result__video {
-  max-height: 386px;
+.search-form__textfield {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.70);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: none;
+  border-left: none;
+  min-width: 225px;
+  font-size: inherit;
+  font-family: inherit;
+  font-style: normal;
+  line-height: normal;
+}
 
-} */
+.search-form__textfield:active {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
 
-/* .content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-} */
+.search-form__textfield:hover {
+  cursor: text;
+}
+
+.search-form__textfield:focus {
+  outline-color: #1b1919;
+}
+
+
+
+
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+
