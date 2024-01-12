@@ -13,11 +13,12 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 h1,
@@ -47,8 +48,8 @@ ol {
 
 .content__list {
   overflow-y: scroll;
-  max-width: 399px;
-  min-height: 298px;
+  width: 399px;
+  height: 298px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -99,43 +100,56 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  width: 100%;
-  max-width: 194px; 
- }
+  width: 194px;
+  height: 110px;
+  object-fit: cover;
+  object-position: center;
+  align-self: center;
+  }
 
 .content__card-link {
   text-decoration: none;
+
 }
 
 .content__video-card-title {
   color: #FFF;
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; /* 30px */
+  line-height: 100%; 
   text-transform: uppercase; 
 }
 
+/* Вот тут тогда не очень понятно, в ревью visibility: hidden; отмечено как лишнее, но им я убираю текст с описанием
+и дальше вместо него добавляю фразу как в макете, и делаю это через css так как в html мне это не поменять */
+
 .content__video-card-description {
-  visibility: hidden;
+  /* visibility: hidden; */
   width: 200px;
   color: #FFF;
   font-style: normal;
   line-height: 16.2px;
 }
 
-.content__video-card-description::before {
+/* .content__video-card-description::before {
   content: "Вот, что видит кто-то из команды Практикума, когда не смотрит на код, а смотрит в окно.";
   visibility: visible;
+} */
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
-  line-height: 94%; /* 70.5px */
+  line-height: 94%; 
   text-transform: uppercase; 
 }
 
@@ -148,7 +162,11 @@ ol {
   background-color: transparent;
   color: inherit;
   min-height: 34px;
-  font-size: 18px;
+  font-size: 17px;
+  cursor: pointer;
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  line-height: normal; 
 }
 
 .search-form__submit-button {
@@ -175,9 +193,9 @@ ol {
 
 .search-form__textfield {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.70);
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  color: inherit;
+ border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff; 
   border-right: none;
   border-left: none;
   min-width: 225px;
@@ -185,16 +203,16 @@ ol {
   font-family: inherit;
   font-style: normal;
   line-height: normal;
-}
+
+  }
 
 .search-form__checkbox-list {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .search-form__textfield:active {
-  border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
+  border: none;
 }
 
 .search-form__textfield:hover {
@@ -204,7 +222,7 @@ ol {
 .search-form__textfield:focus {
   outline: 1px solid #fff;
   outline-offset: 1px;
-}
+  }
 
 .search-form__pseudo-checkbox {
   display: inline-block;
@@ -218,28 +236,27 @@ ol {
 }
 
 .search-form__pseudo-checkbox:hover {
-  background-color: #fff;
-  cursor: pointer;  
+    cursor: pointer;  
 }
 
 input[type='checkbox']:checked +span {
   background-color: #fff;
 }
 
-.search-form__label-text:hover {
+.search-form__label:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.search-form__submit-button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
+
 
 .search-form__label:focus-within {
   outline: 1px solid #fff;
   outline-offset: 1px;
-  padding-bottom: 2px;
+} 
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .button:focus {
@@ -247,15 +264,19 @@ input[type='checkbox']:checked +span {
   outline-offset: 1px;
 }
 
+.button:active {
+  background-color: #545050;
+}
+
 .content__video-card:active {
   background-color: #545050;
 }
 
-.search-form__submit-button:active {
+.content__list-item:has(.content__card-link_current) {      /* fix наводки но не работает ФФ */
   background-color: #545050;
 }
 
-.content__video-card-description-container:hover {
+.content__video-card:hover {
   text-decoration: underline;
   color: #fff;
 }
@@ -267,6 +288,10 @@ input[type='checkbox']:checked +span {
 
 .content__card-link:focus-within, .content__card-link:focus-visible  {       
   outline: none; 
+}
+
+.search-form{
+  font-style: normal;
 }
 
 .visually-hidden {
